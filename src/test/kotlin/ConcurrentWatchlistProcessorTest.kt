@@ -38,7 +38,7 @@ class ConcurrentWatchlistProcessorTest {
     @Test
     fun concurrent_processors_cannot_add_with_two_threads_and_one_retry() {
 
-        val (store, processors) = concurrentAddStock(threads = 2, retries = 1)
+        val (_, processors) = concurrentAddStock(threads = 2, retries = 1)
 
         assertThat(processors.failures(), equalTo(1))
     }
