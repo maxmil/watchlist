@@ -56,9 +56,9 @@ interface EventStore : List<Event> {
 class BlockingEventStore(private val store: MutableList<Event> = mutableListOf()) : List<Event> by store, EventStore {
 
     override fun write(event: Event, position: Int): Boolean =
-            synchronized(this) {
+//            synchronized(this) {
                 if (store.size == position) store.add(event) else false
-            }
+//            }
 }
 
 sealed class Command
